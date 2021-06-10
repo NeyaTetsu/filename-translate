@@ -72,7 +72,7 @@ def click2():
         translated = translator.translate(dirTail, dest='ja').text
         #ディレクトリ名を変更
         shutil.move(dirTail, translated)
-    print('処理が完了しました。')
+    messagebox.showinfo(u'Successful!','処理が完了しました。')
 
 #終了。
 
