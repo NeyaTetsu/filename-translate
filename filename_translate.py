@@ -10,6 +10,19 @@ from tkinter import messagebox
 
 translator = Translator()
 
+
+
+#ファイル選択
+def click1():
+    global paths
+    if mode.get() == 0:
+        paths = filedialog.askopenfilenames(initialdir=os.path.abspath(os.path.dirname(__file__)))
+    else:
+        paths = filedialog.askdirectory(initialdir=os.path.abspath(os.path.dirname(__file__)))
+    print(paths)
+
+
+
 #開始。
 def click2():
     subdir = './' + sub.get()
@@ -74,21 +87,12 @@ def click2():
         shutil.move(dirTail, translated)
     messagebox.showinfo(u'Successful!','処理が完了しました。')
 
+
 #終了。
 
 
 
-#ファイル選択
-def click1():
-    global paths
-    if mode.get() == 0:
-        paths = filedialog.askopenfilenames(initialdir=os.path.abspath(os.path.dirname(__file__)))
-    else:
-        paths = filedialog.askdirectory(initialdir=os.path.abspath(os.path.dirname(__file__)))
-    print(paths)
-
 #GUI
-
 #メインウィンドウ
 root = tk.Tk()
 root.title(u'FileName Translate')
